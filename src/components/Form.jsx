@@ -29,6 +29,9 @@ const Form = () => {
     <StyledForm
       onSubmit={e => {
         e.preventDefault();
+        if (!title || !contents) {
+          alert('입력하시오');
+        }
         dispatch(
           addTodo({
             id: uuid(),

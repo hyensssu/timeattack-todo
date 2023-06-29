@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
 import { deleteTodo, switchTodo } from '../modules/todos';
 
 const List = () => {
+  const dispatch = useDispatch();
   // style
   const StyledTodoBox = styled.div`
     padding: 10px;
@@ -40,8 +41,20 @@ const List = () => {
             <span>{todo.contents}</span>
             <br></br>
             <div>
-              <button>삭제</button>
-              <button>{todo.isDone ? '완료취소' : '완료'}</button>
+              <button
+                onClick={() => {
+                  return dispatch(deleteTodo(todo.id));
+                }}
+              >
+                삭제
+              </button>
+              <button
+                onClick={() => {
+                  return dispatch(switchTodo(todo.id));
+                }}
+              >
+                {todo.isDone ? '완료취소' : '완료'}
+              </button>
             </div>
           </StyledTodoBox>
         );
@@ -54,8 +67,20 @@ const List = () => {
             <span>{todo.contents}</span>
             <br></br>
             <div>
-              <button>삭제</button>
-              <button>{todo.isDone ? '완료취소' : '완료'}</button>
+              <button
+                onClick={() => {
+                  return dispatch(deleteTodo(todo.id));
+                }}
+              >
+                삭제
+              </button>
+              <button
+                onClick={() => {
+                  return dispatch(switchTodo(todo.id));
+                }}
+              >
+                {todo.isDone ? '완료취소' : '완료'}
+              </button>
             </div>
           </StyledTodoBox>
         );

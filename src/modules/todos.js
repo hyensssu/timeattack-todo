@@ -59,14 +59,18 @@ const todos = (state = initialState, action) => {
       const newTodos = [...state, action.payload];
       return newTodos;
     case SWITCH_TODO:
-      state.filter(todo => {
+      return state.map(todo => {
         if (todo.id === action.payload) {
           return { ...todo, isDone: !todo.isDone };
         } else {
           return todo;
         }
       });
-      return [...state];
+    case DELETE_TODO:
+      return state.filter(todo => {
+        return todo.id !== action.payload;
+      });
+
     default:
       return state;
   }
