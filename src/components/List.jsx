@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
 import { deleteTodo, switchTodo } from '../modules/todos';
+import { Link } from 'react-router-dom';
 
 const List = () => {
   const dispatch = useDispatch();
@@ -55,6 +56,8 @@ const List = () => {
               >
                 {todo.isDone ? '완료취소' : '완료'}
               </button>
+              <br />
+              <Link to={`/${todo.id}`}>상세페이지</Link>
             </div>
           </StyledTodoBox>
         );
@@ -81,6 +84,8 @@ const List = () => {
               >
                 {todo.isDone ? '완료취소' : '완료'}
               </button>
+              <br />
+              <Link to={`/${todo.id}`}>상세페이지</Link>
             </div>
           </StyledTodoBox>
         );
