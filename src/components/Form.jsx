@@ -31,6 +31,7 @@ const Form = () => {
         e.preventDefault();
         if (!title || !contents) {
           alert('입력하시오');
+          return false;
         }
         dispatch(
           addTodo({
